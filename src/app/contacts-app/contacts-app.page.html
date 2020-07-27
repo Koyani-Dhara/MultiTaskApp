@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Contacts App</ion-title>
+    <ion-searchbar (keyup)="onKeyUp($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+      {{len}}
+      <ion-item *ngFor="let contact of contactsFound">
+            <h4>{{contact.displayName}}</h4>
+            <!-- <p *ngFor="let num of contact.phoneNumbers">
+              {{num.value}}
+            </p>  -->
+            <!-- <p>{{contact.phoneNumbers.value}}</p> -->
+      </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Name Matching Game</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <br>
+  <div class="container">
+  <form [formGroup]="matchForm"  (ngSubmit)="onSubmit(matchForm.value)" > 
+   
+   
+    <ion-items  class="form-group">
+      <ion-label>Enter Name1</ion-label>
+      <ion-input type="text"  formControlName="name1" name="name1" class="form-control"  required></ion-input>
+      <div *ngIf="matchForm.get('name1').invalid && (matchForm.get('name1').dirty || matchForm.get('name1').touched)"
+      class="alert alert-danger">
+      <div *ngIf="matchForm.get('name1').errors.required">
+         Name1 is required.
+      </div>
+      
+    </div>
+    </ion-items >
+ 
+
+    <ion-items class="form-group">
+      <ion-label>Enter Name2</ion-label>
+      <ion-input type="text"  formControlName="name2" class="form-control"  required></ion-input>
+      <div *ngIf="matchForm.get('name2').invalid && (matchForm.get('name2').dirty || matchForm.get('name2').touched)"
+      class="alert alert-danger">
+      <div *ngIf="matchForm.get('name2').errors.required">
+         Name2 is required.
+      </div>
+      
+    </div>
+    </ion-items>
+    <ion-button type="submit"class="btn btn-primary">Submit</ion-button>
+ 
+  </form>
+  <div [hidden]="!submitted" style="text-align: center;" *ngIf="name1&&name2">
+    <div>
+      <h4>{{name1}}</h4>
+    </div>
+    <div>
+      <img width="50px"src="../../assets/images/download.png">
+    </div>
+    <div>
+      <h4>{{name2}}</h4> 
+    </div>
+    <h3 style="color: red;">
+      Percentage: {{percentage}} %
+    </h3>
+  </div>
+
+
+
+</div>
+</ion-content>

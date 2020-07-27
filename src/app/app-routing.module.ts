@@ -11,6 +11,30 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'student-app',
+    loadChildren: () => import('./student-app/student-app.module').then( m => m.StudentAppPageModule)
+  },
+  {
+    path: 'contacts-app',
+    loadChildren: () => import('./contacts-app/contacts-app.module').then( m => m.ContactsAppPageModule)
+  },
+  {
+    path: 'name-matching-page',
+    loadChildren: () => import('./name-matching-page/name-matching-page.module').then( m => m.NameMatchingPagePageModule)
+  },
+  {
+    path: 'expense-tracker-page',
+    loadChildren: () => import('./expense-tracker-page/expense-tracker-page.module').then( m => m.ExpenseTrackerPagePageModule)
+  },
+  {
+    path: 'create-student',
+    loadChildren: () => import('./create-student/create-student.module').then( m => m.CreateStudentPageModule)
+  },
+  {
+    path: 'edit-student/:Id',
+    loadChildren: () => import('./edit-student/edit-student.module').then( m => m.EditStudentPageModule)
+  },
 ];
 
 @NgModule({

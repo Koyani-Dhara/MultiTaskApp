@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Student List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  
+  <div class="container"  *ngIf="students">
+
+      <!-- <button type="button" class="btn btn-primary" routerLink="/AddStudent">Add Student</button>   -->
+      
+      <ion-button color="light"  name="add-outline" routerLink="/create-student"><ion-icon name="add-outline"></ion-icon> Add Student</ion-button>
+
+      <br>
+    <br>   
+    <table class="table table-responsive table-striped table-bordered" >
+        <thead>
+            <tr>
+               
+                <th>RollNo</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>IsMale</th>
+                <th>Date</th>    
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of students">
+             
+                <td>{{student.rollNo}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.age}}</td>
+                <td>{{student.isMale}}</td>
+                <td>{{student.date}}</td>
+               <td>
+                  <ion-button type="submit" style=" margin-left: 10px;width:200px"name="add-outline" (click)="editStudent(student,student.id)"><i class="fa fa-pencil-square-o" style="margin-right: 10px;"></i> Edit</ion-button>
+                </td>
+                <td>
+                    
+                    <button type="submit" class="btn btn-danger" style="margin-left: 10px; width:200px" (click)="deleteStudent(student.id)"><i class="fa fa-trash" style="margin-right: 10px;"aria-hidden="true"></i>DELETE</button> 
+              
+                  </td>
+            </tr>
+        </tbody>
+        
+    </table>
+</div>
+<div [hidden]="students">
+  <ion-spinner></ion-spinner>
+  <h4>Loading....Please wait</h4>
+</div>
+</ion-content>
