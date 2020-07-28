@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-import {ReactiveFormsModule} from '@angular/forms';
-import { ExpenseTrackerPagePageRoutingModule } from './expense-tracker-page-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
-import { ExpenseTrackerPagePage } from './expense-tracker-page.page';
+import { ExpensePageRoutingModule } from './expense-routing.module';
+import {ReactiveFormsModule} from '@angular/forms';
+import { ExpensePage } from './expense.page';
 
 @NgModule({
   imports: [
@@ -14,9 +14,9 @@ import { ExpenseTrackerPagePage } from './expense-tracker-page.page';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    ExpenseTrackerPagePageRoutingModule,
+    ExpensePageRoutingModule,
     IonicStorageModule.forRoot()
   ],
-  declarations: [ExpenseTrackerPagePage]
+  declarations: [ExpensePage]
 })
-export class ExpenseTrackerPagePageModule {}
+export class ExpensePageModule {}

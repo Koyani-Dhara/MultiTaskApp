@@ -7,12 +7,12 @@
 
 <ion-content>
     <ion-list>
-      {{len}}
+     
       <ion-item *ngFor="let contact of contactsFound">
             <h4>{{contact.displayName}}</h4>
-            <!-- <p *ngFor="let num of contact.phoneNumbers">
+             <p *ngFor="let num of contact?.phoneNumbers">
               {{num.value}}
-            </p>  -->
+            </p>  
             <!-- <p>{{contact.phoneNumbers.value}}</p> -->
       </ion-item>
     </ion-list>

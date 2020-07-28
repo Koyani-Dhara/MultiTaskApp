@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Expense</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   <div class="container">
+    <h1 style="text-align: center;">Total Saving Till Now : {{saving}}</h1>
+    <h2 style="text-align: center;">Total Expenses : {{expense}}</h2>
+    <h3 style="text-align: center;">Available Amount : {{balance}}</h3>
+  </div> 
+  <h1>Add Expenses:</h1>
+  <form>
+    <ion-item class="form-group">
+      <ion-label>INTER AMOUNT</ion-label>
+     
+      <ion-input type="number"   formControlName="expense" required></ion-input>  
+    
+    </ion-item>
+    <button type="submit"(click)="onSubmit(txt.value)" class="btn btn-primary">ADD</button>
+    <div [hidden]="!submitted">
+      <h5>ADDED!</h5>
+    </div>
+  </form>
+  <br>
+  <br>
+  <button routerLink="/expense-tracker-page" class="btn btn-primary">GO TO HOME</button>
+</ion-content>

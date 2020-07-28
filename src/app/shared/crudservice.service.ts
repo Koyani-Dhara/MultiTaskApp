@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpErrorResponse ,HttpHeaders} from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { HTTP } from '@ionic-native/http';
+import { HTTP } from '@ionic-native/http/ngx';
 import {Observable} from "rxjs";
 
 import { Student } from './Student';
@@ -18,21 +18,29 @@ export class CrudserviceService {
     })
   }
   constructor(private httpClient: HttpClient) { }
-  create(student: Student){
+  create(student: Student): Observable<Student> {
     debugger
     console.log(student);
     return this.httpClient.post<Student>(this.apiServer, JSON.stringify(student), this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+   
   }  
-  getById(id): Observable<any> {
+  getById(id): Observable<Student> {
     debugger
-    return this.httpClient.get(this.apiServer + id)
-    
+    return this.httpClient.get<Student>(this.apiServer + id)
+    .pipe(
+      catchError(this.errorHandler)
+    )
   }
 
-  getAll(): Observable<any> {
+  getAll(): Observable<Student[]> {
     debugger
-    return this.httpClient.get(this.apiServer)
-   
+    return this.httpClient.get<Student[]>(this.apiServer)
+    .pipe(
+      catchError(this.errorHandler)
+    )
   }
 
   update(student: Student,id: string): Observable<Student> {

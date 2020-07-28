@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>AddSaving</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <h1 style="text-align: center;">Available Balance : {{balance}}</h1>
+  </div>
+  <form>
+    <ion-item class="form-group">
+      <ion-label>ADD AMOUNT</ion-label>
+      <br>
+      <ion-input type="number"   #txt  required></ion-input>
+      
+      
+    
+    </ion-item>
+    <button type="submit"(click)="onSubmit(txt.value)" class="btn btn-primary">ADD</button>
+    <div [hidden]="!submitted">
+      <h5>ADDED!</h5>
+    </div>
+  </form>
+  <br>
+  <br>
+  <button  routerLink="/expense-tracker-page" class="btn btn-primary">GO TO HOME</button>
+</ion-content>

@@ -5,5 +5,28 @@
 </ion-header>
 
 <ion-content>
+  <div>
+    <h1 style="text-align: center;">Available Balance : {{balance}}</h1>
+  </div>
+  <!-- <div  *ngIf="!balance">
+    <form > 
+   
+   
+      <div class="form-group">
+        <label>Enter Balance</label>
+        <input type="number"   #txt class="form-control"  required />
+        
+        
+      
+      </div>
+      <button type="submit"(click)="onSubmit(txt.value)" class="btn btn-primary">Submit</button>
+
+    </form>
+  </div> 
+   -->
+  <ion-button  style=" width:100%;margin-top:100%;"name="add-outline" routerLink="/add-saving"> ADD SAVING</ion-button>
+  <ion-button  style=" width:100%"name="add-outline" routerLink="/expense"> ADD EXPENSE</ion-button>
+  <ion-button  style=" width:100%"name="add-outline"> CHECK HISTORY</ion-button>
+
 
 </ion-content>
